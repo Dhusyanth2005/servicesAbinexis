@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import BridgeMotif from "../components/BridgeMotif";
+import HeroGlobe from "../components/HeroGlobe";
 import {
   IconCode,
   IconChip,
@@ -90,7 +91,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <BridgeMotif className="hero__motif" />
+          <HeroGlobe />
         </div>
       </section>
 

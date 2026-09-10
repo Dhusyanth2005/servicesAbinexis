@@ -59,9 +59,14 @@
 
 .founder__photo {
   width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
+  max-width: 320px;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
   border-radius: var(--radius-md);
+  border: 1px solid var(--color-paper-dim);
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(18, 20, 43, 0.06);
 }
 
 .founder p {
@@ -104,8 +109,11 @@
   }
 
   .founder__photo {
-    max-width: 300px;
-    aspect-ratio: 3 / 4;
+    max-width: 320px;
+    height: auto;
+    aspect-ratio: auto;
+    margin: 0 auto 1.25rem;
+    display: block;
   }
 }
 
@@ -129,9 +137,13 @@
   }
 
   .founder__photo {
-    max-width: 100%;
-    aspect-ratio: 3 / 2;
-    object-position: top;
+    max-width: 280px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: contain;
+    margin: 0 auto 1rem;
+    display: block;
   }
 
   .founder__tags li {

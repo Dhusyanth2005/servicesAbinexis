@@ -73,8 +73,9 @@ export default function About() {
         <div className="container founder__inner">
           <img
             className="founder__photo"
-            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80"
-            alt="Portrait placeholder for Abinash Ramakrishnan"
+            src="/about.png"
+            alt="Abinash Ramakrishnan, Founder of Abinexis Group"
+            loading="lazy"
           />
           <div>
             <span className="eyebrow">Founder</span>
