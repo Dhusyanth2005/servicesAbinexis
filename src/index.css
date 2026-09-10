@@ -44,6 +44,40 @@
 
 html {
   scroll-behavior: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gold) var(--color-ink);
+}
+
+/* ── Custom Scrollbar ────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-ink);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-gold) 0%, var(--color-gold-dim) 100%);
+  border-radius: 9999px;
+  border: 2px solid var(--color-ink);
+  background-clip: padding-box;
+  transition: background 0.2s var(--ease);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #dfb455;
+  border: 2px solid var(--color-ink);
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #f3cc6d;
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--color-ink);
 }
 
 body {
