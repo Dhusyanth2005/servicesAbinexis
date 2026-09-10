@@ -1,0 +1,115 @@
+.contact__inner {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: var(--space-lg);
+}
+
+.contact__info p {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+}
+
+.contact__list {
+  margin-top: var(--space-md);
+}
+
+.contact__list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: var(--space-sm) 0;
+  border-top: 1px solid var(--color-paper-dim);
+}
+
+.contact__list span {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.contact__list a {
+  font-family: var(--font-head);
+  font-weight: 600;
+}
+
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  background: #fff;
+  border: 1px solid var(--color-paper-dim);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.contact__form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.contact__form input,
+.contact__form textarea {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--color-paper-dim);
+  border-radius: var(--radius-sm);
+  background: var(--color-paper);
+  color: var(--color-text);
+  resize: vertical;
+}
+
+.contact__form input:focus,
+.contact__form textarea:focus {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 1px;
+}
+
+.contact__form button {
+  align-self: flex-start;
+  margin-top: 0.4rem;
+}
+
+.contact__success {
+  padding: var(--space-md) 0;
+}
+
+.contact__success p {
+  color: var(--color-text-muted);
+}
+
+/* ── Tablet (≤ 860px) ───────────────────── */
+@media (max-width: 860px) {
+  .contact__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+}
+
+/* ── Mobile (≤ 560px) ───────────────────── */
+@media (max-width: 560px) {
+  .contact__info p {
+    font-size: 1rem;
+  }
+
+  .contact__form {
+    padding: var(--space-sm);
+  }
+
+  /* Prevent iOS auto-zoom on focus */
+  .contact__form input,
+  .contact__form textarea {
+    font-size: 1rem;
+  }
+
+  .contact__form button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .contact__list a {
+    word-break: break-all;
+  }
+}

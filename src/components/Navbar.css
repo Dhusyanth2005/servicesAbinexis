@@ -1,0 +1,205 @@
+/* ── Navbar shell ──────────────────────────────────────── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(244, 243, 238, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-paper-dim);
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+/* ── Logo ──────────────────────────────────────────────── */
+.nav__logo {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+  z-index: 1;
+}
+
+/* ── Desktop links ─────────────────────────────────────── */
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.nav__link {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  padding: 0.4rem 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+
+.nav__link:hover {
+  color: var(--color-ink);
+}
+
+.nav__link--active {
+  color: var(--color-ink);
+  border-bottom-color: var(--color-gold);
+}
+
+.nav__cta {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+}
+
+/* ── Hamburger toggle (hidden on desktop) ──────────────── */
+.nav__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.nav__toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-ink);
+  border-radius: 2px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition:
+    transform 0.3s var(--ease),
+    opacity   0.2s var(--ease),
+    top       0.3s var(--ease);
+}
+
+/* Resting positions */
+.nav__toggle span:nth-child(1) { top: 13px; }
+.nav__toggle span:nth-child(2) { top: 50%; margin-top: -1px; }
+.nav__toggle span:nth-child(3) { top: auto; bottom: 13px; }
+
+/* Open → X morph */
+.nav__toggle--open span:nth-child(1) {
+  top: 50%;
+  margin-top: -1px;
+  transform: translateX(-50%) rotate(45deg);
+}
+.nav__toggle--open span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-50%) scaleX(0);
+}
+.nav__toggle--open span:nth-child(3) {
+  bottom: auto;
+  top: 50%;
+  margin-top: -1px;
+  transform: translateX(-50%) rotate(-45deg);
+}
+
+/* ── Backdrop ──────────────────────────────────────────── */
+.nav__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background: rgba(18, 20, 43, 0.35);
+  backdrop-filter: blur(2px);
+  animation: backdropIn 0.22s var(--ease) both;
+}
+
+@keyframes backdropIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Mobile menu ───────────────────────────────────────── */
+@media (max-width: 860px) {
+  .nav__toggle {
+    display: flex;
+  }
+
+  .nav__links {
+    /* Layout */
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0 var(--container-pad);
+    background: var(--color-paper);
+    border-bottom: 1px solid var(--color-paper-dim);
+    box-shadow: 0 12px 40px rgba(18, 20, 43, 0.12);
+
+    /* Closed state */
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition:
+      opacity    0.25s var(--ease),
+      transform  0.25s var(--ease),
+      visibility 0s linear 0.25s;
+  }
+
+  .nav__links--open {
+    pointer-events: auto;
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      opacity    0.25s var(--ease),
+      transform  0.25s var(--ease),
+      visibility 0s linear 0s;
+  }
+
+  /* Individual link rows */
+  .nav__link {
+    width: 100%;
+    padding: 0.95rem 0;
+    border-bottom: 1px solid var(--color-paper-dim);
+    border-left: none;
+    /* Staggered slide-up per link */
+    opacity: 0;
+    transform: translateY(6px);
+    transition:
+      color       0.2s var(--ease),
+      border-color 0.2s var(--ease),
+      opacity     0.22s var(--ease) calc(var(--i, 0) * 40ms + 60ms),
+      transform   0.22s var(--ease) calc(var(--i, 0) * 40ms + 60ms);
+  }
+
+  .nav__links--open .nav__link {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* CTA button */
+  .nav__cta {
+    margin: var(--space-sm) 0;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(6px);
+    transition:
+      opacity   0.22s var(--ease) calc(var(--i, 5) * 40ms + 60ms),
+      transform 0.22s var(--ease) calc(var(--i, 5) * 40ms + 60ms);
+  }
+
+  .nav__links--open .nav__cta {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

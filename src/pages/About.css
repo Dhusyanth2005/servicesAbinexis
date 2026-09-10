@@ -1,0 +1,141 @@
+.about-hero__inner {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.about-hero p {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+}
+
+.about-hero__motif {
+  width: 100%;
+  height: auto;
+  opacity: 0.9;
+}
+
+.about-mission__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+}
+
+.about-mission h2 {
+  color: var(--color-text-on-ink);
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.value-card {
+  padding: var(--space-md);
+  border: 1px solid var(--color-paper-dim);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--color-gold);
+}
+
+.value-card h3 {
+  margin-bottom: 0.4rem;
+  font-size: 1.1rem;
+}
+
+.value-card p {
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+}
+
+.founder__inner {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.founder__photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.founder p {
+  color: var(--color-text-muted);
+}
+
+.founder__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: var(--space-sm);
+}
+
+.founder__tags li {
+  font-size: 0.85rem;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--color-paper-dim);
+  border-radius: 999px;
+  color: var(--color-text-muted);
+}
+
+/* ── Tablet (≤ 860px) ───────────────────── */
+@media (max-width: 860px) {
+  .about-hero__inner,
+  .about-mission__grid,
+  .founder__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero__motif {
+    display: none;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .founder__inner {
+    gap: var(--space-md);
+  }
+
+  .founder__photo {
+    max-width: 300px;
+    aspect-ratio: 3 / 4;
+  }
+}
+
+/* ── Mobile (≤ 560px) ───────────────────── */
+@media (max-width: 560px) {
+  .about-hero p {
+    font-size: 1rem;
+  }
+
+  .about-mission__grid {
+    gap: var(--space-md);
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+    margin-top: var(--space-md);
+  }
+
+  .value-card {
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .founder__photo {
+    max-width: 100%;
+    aspect-ratio: 3 / 2;
+    object-position: top;
+  }
+
+  .founder__tags li {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.65rem;
+  }
+}
