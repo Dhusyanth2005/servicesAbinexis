@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SEO from "../components/SEO";
 import "./Contact.css";
 
 export default function Contact() {
@@ -18,7 +19,13 @@ export default function Contact() {
   }
 
   return (
-    <section className="section contact">
+    <>
+      <SEO
+        title="Contact Abinexis Group | Start a Project or Partnership"
+        description="Get in touch with Abinexis Group for software, hardware engineering, international trade inquiries, or partnership opportunities."
+        path="/contact"
+      />
+      <section className="section contact">
       <div className="container contact__inner">
         <div className="contact__info">
           <span className="eyebrow">Contact</span>
@@ -99,6 +106,7 @@ export default function Contact() {
           )}
         </form>
       </div>
-    </section>
+      </section>
+    </>
   );
 }

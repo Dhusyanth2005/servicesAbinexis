@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import BridgeMotif from "../components/BridgeMotif";
 import HeroGlobe from "../components/HeroGlobe";
+import SEO from "../components/SEO";
 import {
   IconCode,
   IconChip,
@@ -64,6 +65,11 @@ const SERVICES_PREVIEW = [
 export default function Home() {
   return (
     <>
+      <SEO
+        title="Abinexis Group | Engineering, Technology & Global Ventures"
+        description="Abinexis Group is an engineering-led entrepreneurial group building software, hardware IoT systems, e-commerce platforms, and global trade solutions."
+        path="/"
+      />
       <section className="hero section">
         <div className="container hero__inner">
           <div className="hero__text">
@@ -138,7 +144,7 @@ export default function Home() {
               return (
                 <Link to="/services" className="service-tile" key={s.title}>
                   <div className="service-tile__media">
-                    <img src={s.img} alt="" loading="lazy" />
+                    <img src={s.img} alt={`${s.title} - Abinexis`} loading="lazy" />
                     <span className="service-tile__icon">
                       <Icon width="20" height="20" />
                     </span>

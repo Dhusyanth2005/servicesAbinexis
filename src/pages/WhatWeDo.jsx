@@ -1,3 +1,4 @@
+import SEO from "../components/SEO";
 import "./WhatWeDo.css";
 
 const AREAS = [
@@ -36,6 +37,11 @@ const AREAS = [
 export default function WhatWeDo() {
   return (
     <>
+      <SEO
+        title="What We Do | Abinexis Group - Five Core Verticals"
+        description="Discover the 5 verticals of Abinexis Group: Technology & software, hardware IoT, digital commerce, global trade & export, and entrepreneurial innovation."
+        path="/what-we-do"
+      />
       <section className="section what-hero">
         <div className="container">
           <span className="eyebrow">What we do</span>

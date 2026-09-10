@@ -8,6 +8,7 @@ import {
   IconGlobe,
   IconBulb,
 } from "../components/ServiceIcons";
+import SEO from "../components/SEO";
 import "./Services.css";
 
 const SERVICES = [
@@ -64,6 +65,11 @@ const SERVICES = [
 export default function Services() {
   return (
     <>
+      <SEO
+        title="Engineering & Technology Services | Abinexis Group"
+        description="Explore Abinexis Group services: Custom software development, AI & automation, IoT & embedded hardware, AWS cloud hosting, e-commerce, and export trade."
+        path="/services"
+      />
       <section className="section services-hero">
         <div className="container">
           <span className="eyebrow">Services</span>

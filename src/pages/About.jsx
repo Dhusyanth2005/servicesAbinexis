@@ -1,4 +1,5 @@
 import BridgeMotif from "../components/BridgeMotif";
+import SEO from "../components/SEO";
 import "./About.css";
 
 const VALUES = [
@@ -13,6 +14,11 @@ const VALUES = [
 export default function About() {
   return (
     <>
+      <SEO
+        title="About Us | Abinexis Group - Engineering-Led Venture Group"
+        description="Learn about Abinexis Group, founded by Abinash Ramakrishnan. We combine software, hardware engineering, e-commerce, and international trade under one ecosystem."
+        path="/about"
+      />
       <section className="section about-hero">
         <div className="container about-hero__inner">
           <div>
