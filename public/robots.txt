@@ -1,9 +1,7 @@
-# https://www.robotstxt.org/robotstxt.html
+# Allow all web crawlers
 User-agent: *
 Allow: /
+Disallow:
 
-# Host
-Host: https://abinexis.com
-
-# Sitemaps
+# Sitemap
 Sitemap: https://abinexis.com/sitemap.xml

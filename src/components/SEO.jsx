@@ -23,11 +23,13 @@ export default function SEO({
       meta.setAttribute("content", content);
     };
 
-    const fullUrl = path ? `${BASE_URL}${path}` : BASE_URL;
+    const cleanPath = path ? (path.startsWith("/") ? path : `/${path}`) : "/";
+    const fullUrl = cleanPath === "/" ? `${BASE_URL}/` : `${BASE_URL}${cleanPath}`;
 
     // 2. Standard Meta Tags
     updateMetaTag("name", "title", title);
     updateMetaTag("name", "description", description);
+    updateMetaTag("name", "robots", "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
 
     // 3. Open Graph Tags
     updateMetaTag("property", "og:title", title);
