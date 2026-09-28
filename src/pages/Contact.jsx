@@ -38,8 +38,8 @@ export default function Contact() {
           <ul className="contact__list">
             <li>
               <span>Email</span>
-              <a href="mailto:abinashramakrishnan0308@gmail.com">
-                abinashramakrishnan0308@gmail.com
+              <a href="mailto:founder@abinexis.com">
+                founder@abinexis.com
               </a>
             </li>
             <li>
