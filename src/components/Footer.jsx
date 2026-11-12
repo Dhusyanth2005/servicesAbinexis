@@ -28,6 +28,11 @@ export default function Footer() {
           <h4>Elsewhere</h4>
           <ul>
             <li>
+              <a href="tel:+918248038528">
+                Ph: +91 82480 38528
+              </a>
+            </li>
+            <li>
               <a href="https://store.abinexis.com/" target="_blank" rel="noreferrer">
                 Storefront
               </a>
