@@ -534,6 +534,12 @@ body.nav-open .hero__float-btn {
   .hero__inner {
     gap: 1.25rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero__globe-wrapper {
+    order: -1;
   }
 
   .hero__text h1 {
