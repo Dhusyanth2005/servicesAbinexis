@@ -40,6 +40,264 @@
   font-size: 1.02rem;
 }
 
+/* ── Apply Button ───────────────────────────────────────── */
+.apply-btn {
+  margin-top: var(--space-sm);
+  gap: 0.5rem;
+}
+
+/* ── Modal Overlay ──────────────────────────────────────── */
+@keyframes modal-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes modal-slide-up {
+  from { opacity: 0; transform: translateY(28px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(18, 20, 43, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  animation: modal-fade-in 0.22s var(--ease) both;
+}
+
+.modal-card {
+  position: relative;
+  background: #fff;
+  border-radius: var(--radius-md);
+  width: 100%;
+  max-width: 580px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 60px rgba(18, 20, 43, 0.22), 0 4px 16px rgba(18, 20, 43, 0.1);
+  animation: modal-slide-up 0.3s var(--ease) both;
+  /* Gold top accent bar */
+  border-top: 3.5px solid var(--color-gold);
+}
+
+/* ── Modal Header ───────────────────────────────────────── */
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.75rem 1.75rem 1rem;
+  border-bottom: 1px solid var(--color-paper-dim);
+}
+
+.modal-eyebrow {
+  display: inline-block;
+  font-family: var(--font-head);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gold-dim);
+  margin-bottom: 0.25rem;
+}
+
+.modal-title {
+  font-size: clamp(1.3rem, 3vw, 1.65rem);
+  font-weight: 700;
+  color: var(--color-ink);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.modal-close {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--color-paper-dim);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: background 0.15s var(--ease), color 0.15s var(--ease), border-color 0.15s var(--ease);
+  margin-top: 2px;
+}
+
+.modal-close:hover {
+  background: var(--color-paper-dim);
+  color: var(--color-ink);
+  border-color: var(--color-paper-dim);
+}
+
+/* ── Modal Form ─────────────────────────────────────────── */
+.modal-form {
+  padding: 1.5rem 1.75rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.modal-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.modal-field label {
+  font-family: var(--font-head);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  letter-spacing: 0.01em;
+}
+
+.modal-field label span {
+  color: var(--color-gold-dim);
+}
+
+.modal-field input,
+.modal-field select {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  background: var(--color-paper);
+  border: 1.5px solid var(--color-paper-dim);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.85rem;
+  outline: none;
+  transition: border-color 0.18s var(--ease), box-shadow 0.18s var(--ease);
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+}
+
+.modal-field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b6a63' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.modal-field input:focus,
+.modal-field select:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(200, 155, 60, 0.15);
+}
+
+.modal-field input::placeholder {
+  color: #bbb;
+}
+
+/* Error state */
+.modal-field--error input,
+.modal-field--error select {
+  border-color: #e53e3e;
+  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
+}
+
+.modal-field__error {
+  font-size: 0.78rem;
+  color: #c53030;
+  font-family: var(--font-body);
+}
+
+/* Footer row */
+.modal-form__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.modal-form__footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+}
+
+.modal-form__submit-error {
+  font-size: 0.8rem;
+  color: #c53030;
+  margin: 0;
+  max-width: none;
+}
+
+.modal-form__note {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin: 0;
+  max-width: none;
+}
+
+.modal-submit {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.modal-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Success State ──────────────────────────────────────── */
+.modal-success {
+  padding: 2.5rem 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+}
+
+.modal-success__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(52, 211, 153, 0.12);
+  color: #059669;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.modal-success h3 {
+  font-size: 1.35rem;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+.modal-success p {
+  color: var(--color-text-muted);
+  font-size: 0.97rem;
+  max-width: 36ch;
+  margin: 0;
+}
+
+.modal-success .btn {
+  margin-top: 0.5rem;
+}
+
 /* ── Tablet (≤ 860px) ───────────────────── */
 @media (max-width: 860px) {
   .area__inner,
@@ -73,5 +331,38 @@
 
   .area p {
     font-size: 0.97rem;
+  }
+
+  /* Modal on mobile */
+  .modal-overlay {
+    padding: 0.75rem;
+    align-items: flex-end;
+  }
+
+  .modal-card {
+    max-height: 92vh;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+  }
+
+  .modal-header {
+    padding: 1.25rem 1.25rem 0.85rem;
+  }
+
+  .modal-form {
+    padding: 1.25rem;
+  }
+
+  .modal-form__row {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-form__footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .modal-submit {
+    width: 100%;
+    justify-content: center;
   }
 }

@@ -71,6 +71,15 @@ export default function Home() {
         path="/"
       />
       <section className="hero section">
+        {/* ── Floating Apply Button ── */}
+        <Link to="/what-we-do#entrepreneurship" className="hero__float-btn">
+          <span className="hero__float-btn-dot" aria-hidden="true" />
+          <span className="hero__float-btn-inner">
+            <span className="hero__float-btn-top">Entrepreneurship Programme</span>
+            <span className="hero__float-btn-cta">Apply Now →</span>
+          </span>
+        </Link>
+
         <div className="container hero__inner">
           <div className="hero__text">
             <span className="eyebrow">Abinexis Group</span>

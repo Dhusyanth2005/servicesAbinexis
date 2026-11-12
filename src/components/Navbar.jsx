@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 
@@ -13,6 +13,12 @@ const LINKS = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
+
+  /* Stamp a class on <body> so the floating button can hide behind the menu */
+  useEffect(() => {
+    document.body.classList.toggle("nav-open", open);
+    return () => document.body.classList.remove("nav-open");
+  }, [open]);
 
   return (
     <>
